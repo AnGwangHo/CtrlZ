@@ -4,26 +4,23 @@ var fadeShow = $(".background").fadeShow({
 
 
 
-	correctRatio: true,
+   correctRatio: true,
 
 
 
-	shuffle: true,
+   shuffle: true,
 
 
 
-	speed: 2500,
+   speed: 2500,
 
 
 
-	images: ['images/slider-image-1.jpg',
+   images: ['/html/images/main_image.jpg',
 
 
 
-			 'images/slider-image-2.jpg']
-
-
-
+          '/html/images/main_image.jpg']
 
 
 

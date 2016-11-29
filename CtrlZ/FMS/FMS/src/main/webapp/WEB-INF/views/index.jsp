@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ page session="false"%>
+<!DOCTYPE HTML>
 
 <html>
 <head>
@@ -14,7 +14,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <title>:: Floxi ::</title>
-<link rel="shortcut icon" href="/html/images/favicon.ico" type="/html/image/x-icon">
+<link rel="shortcut icon" href="/html/images/favicon.ico" type="image/x-icon">
 
 <!-- style -->
 
@@ -34,35 +34,41 @@
 
 <link href="/html/css/font-awesome.min.css" rel="stylesheet">
 
-<!-- font-awesome -->
+<!-- Slider -->
 
+<link href="/html/css/jquery.fadeshow-0.1.1.min.css" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- side bar -->
+<!-- slider -->
 
-<jsp:include page="include/side.jsp"/>
+<div class="background"></div>
+<div class="over-bg"></div>
+
+<!-- slider -->
+
+<main role="slider-container"> 
+  
 <!-- side bar --> 
-
+<jsp:include page="include/side.jsp"/>
 
 <!-- header -->
 <jsp:include page="include/header.jsp"/>
 
-<!-- header --> 
-
-<!-- main -->
-
-<main role="main" id="main">
-  <div class="container"> 
-    
-    <!-- tab-content -->
-    
-    <div class="tab-content"> 
+  
+  <!-- main -->
+  
+  <main role="main" id="main">
+    <div class="container"> 
       
-      <!-- Home -->
+      <!-- tab-content -->
       
-      <section id="home" class="tab-pane fade in active">
+      <div class="tab-content"> 
+        
+        <!-- Home -->
+        
+          <section id="home" class="tab-pane fade in active">
           <article class="home-content">
             <header role="home-title">
               <h2>F.M.S
@@ -75,12 +81,12 @@
           </article>
           <div id="countdown"></div>
         </section>
-      
-      <!-- Home --> 
-      
-      <!-- about -->
-      
-      <section id="menu1" class="tab-pane fade other-page about-pan">
+        
+        <!-- Home --> 
+        
+        <!-- about -->
+        
+        <section id="menu1" class="tab-pane fade other-page about-pan">
           <header role="page-title">
             <h2>F.M.S(풋볼 매니지먼트 솔루션)이란...?</h2>
           </header>
@@ -94,97 +100,99 @@
             <p>조원  : 임영묵, 김민호, 강준, 박찬용</p>
           </article>
         </section>
-      
-      <!-- about --> 
-      
-      <!-- Newsletter Subscribtion -->
-      
-      <section id="menu2" class="tab-pane fade other-page">
-        <header role="page-title">
-          <h2>Newsletter Subscribtion</h2>
-        </header>
-        <article>
-          <p>Mauris rutrum risus ac luctus cursus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent vel quam id mi finibus tempor. </p>
-          
-          <!-- subscribe -->
-          
-          <div class="subscribe-pan">
-            <div class="ntify_form">
-              <form method="post" action="/html/php/subscribe.php" name="subscribeform" id="subscribeform">
-                <input name="email" type="email" id="subemail" placeholder="Enter Your Email...">
-                <label>
-                  <input name="" type="submit" class="button-icon">
-                  <i class="fa fa-paper-plane" aria-hidden="true"></i> </label>
-              </form>
-              
-              <!-- subscribe message -->
-              
-              <div id="mesaj"></div>
-              
-              <!-- subscribe message --> 
-              
-            </div>
-          </div>
-          
-          <!-- subscribe --> 
-          
-        </article>
-      </section>
-      
-      <!-- Newsletter Subscribtion --> 
-      
-      <!-- Contact -->
-      
-      <section id="menu3" class="tab-pane fade other-page">
-        <header role="page-title">
-          <h2>Contact us</h2>
-        </header>
-        <article>
-          <p>Mauris rutrum risus ac luctus cursus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent vel quam id mi finibus tempor. </p>
-        </article>
         
-        <!-- form -->
+        <!-- about --> 
         
-        <div class="contact-from row">
-          <div class="col-md-7 col-lg-7">
-            <div id="message"></div>
-            <form method="post" action="/html/php/contact.php" name="cform" id="cform">
-              <div class="row">
-                <div class="col-md-6 col-lg-6 col-sm-6">
-                  <input  name="name" id="name" type="text" placeholder="Enter Your Name...">
-                </div>
-                <div class="col-md-6 col-lg-6 col-sm-6">
-                  <input  name="email" id="email" type="email"  placeholder="Enter Your Email...">
-                </div>
+        <!-- Newsletter Subscribtion -->
+        
+        <section id="menu2" class="tab-pane fade other-page">
+          <header role="page-title">
+            <h2>Newsletter Subscribtion</h2>
+          </header>
+          <article>
+            <p>Mauris rutrum risus ac luctus cursus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent vel quam id mi finibus tempor. </p>
+            
+            <!-- subscribe -->
+            
+            <div class="subscribe-pan">
+              <div class="ntify_form">
+                <form method="post" action="/schedule" name="subscribeform" id="subscribeform">
+                  <input name="email" type="email" id="subemail" placeholder="Enter Your Email...">
+                  <label>
+                    <input name="" type="submit" class="button-icon">
+                    <i class="fa fa-paper-plane" aria-hidden="true"></i> </label>
+                </form>
+                
+                <!-- subscribe message -->
+                
+                <div id="mesaj"></div>
+                
+                <!-- subscribe message --> 
+                
               </div>
-              <div class="clearfix"></div>
-              <textarea name="comments" id="comments" cols="" rows="" placeholder="Enter Your Description..."></textarea>
-              <div class="clearfix"></div>
-              <input name="" type="submit" value="Submit">
-              <div id="simple-msg"></div>
-            </form>
+            </div>
+            
+            <!-- subscribe --> 
+            
+          </article>
+        </section>
+        
+        <!-- Newsletter Subscribtion --> 
+        
+        <!-- Contact -->
+        
+        <section id="menu3" class="tab-pane fade other-page">
+          <header role="page-title">
+            <h2>Contact us</h2>
+          </header>
+          <article>
+            <p>Mauris rutrum risus ac luctus cursus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent vel quam id mi finibus tempor. </p>
+          </article>
+          
+          <!-- form -->
+          
+          <div class="contact-from row">
+            <div class="col-md-7 col-lg-7">
+              <div id="message"></div>
+              <form method="post" action="php/contact.php" name="cform" id="cform">
+                <div class="row">
+                  <div class="col-md-6 col-lg-6 col-sm-6">
+                    <input  name="name" id="name" type="text" placeholder="Enter Your Name...">
+                  </div>
+                  <div class="col-md-6 col-lg-6 col-sm-6">
+                    <input  name="email" id="email" type="email"  placeholder="Enter Your Email...">
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <textarea name="comments" id="comments" cols="" rows="" placeholder="Enter Your Description..."></textarea>
+                <div class="clearfix"></div>
+                <input name="" type="submit" value="Submit">
+                <div id="simple-msg"></div>
+              </form>
+            </div>
+            <div class="clearfix"></div>
           </div>
-          <div class="clearfix"></div>
-        </div>
+          
+          <!-- form --> 
+          
+        </section>
         
-        <!-- form --> 
+        <!-- Contact --> 
         
-      </section>
+      </div>
       
-      <!-- Contact --> 
+      <!-- tab-content --> 
       
     </div>
-    
-    <!-- tab-content --> 
-    
-  </div>
+  </main>
+  
+  <!-- main --> 
+  
+  <!-- footer -->
+  
+  <jsp:include page="include/footer.jsp"/>
+ 
 </main>
-
-<!-- main --> 
-
-<!-- footer -->
-
-<jsp:include page="include/footer.jsp"/>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 
@@ -203,8 +211,14 @@
 
 <script src="/html/js/countdown-js.js" type="text/javascript"></script> 
 <script type="text/javascript" src="/html/js/jquery.contact.js"></script> 
+
+<!-- slider --> 
+
+<script type="text/javascript" src="/html/js/background.cycle.js"></script> 
+<script type="text/javascript" src="/html/js/background.cycle-custom.js"></script> 
 <script src="/html/js/html5shiv.js" type="text/javascript"></script> 
 
+<!-- Typed --> 
 <!-- Typed jS --> 
 
 <script src="/html/js/typed.js" type="text/javascript"></script> 

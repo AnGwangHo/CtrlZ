@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+                        
+<!-- 네임스페이스(사용영역) 설정 -->
+<mapper namespace="com.cz.fms.schedule">
+	
+	<!-- 일정 등록 -->
+	<insert id="create" parameterType="Schedule">
+		INSERT INTO SCHEDULE(schedule_num,
+			                 schedule_title,
+			                 schedule_content,
+			                 schedule_writer,
+			                 schedule_location,
+			                 schedule_date,
+			                 schedule_deadline
+			                 )
+			   VALUES (SCHEDULE_NUM_SEQ.NEXTVAL,
+       				   #{schedule_title},
+			           #{schedule_content},
+			           #{schedule_writer},
+			           #{schedule_location},
+			           TO_DATE(#{schedule_date},'yyyy-mm-dd'),
+			           TO_DATE(#{schedule_deadline},'yyyy-mm-dd')
+			           )
+	</insert>
+	
+	<!-- 일정 수정 -->
+	<update id="update">
+		UPDATE SCHEDULE
+		SET schedule_title = #{schedule_title},
+			schedule_content = #{schedule_content},
+			schedule_date = #{schedule_date},
+   			schedule_location = #{schedule_location},
+   			schedule_deadline = #{schedule_deadline},
+   			schedule_joinname = #{schedule_joinname}
+		WHERE schedule_num = #{schedule_num}
+	</update>
+	
+	<!-- 일정 삭제 -->
+	<delete id="remove">
+		DELETE SCHEDULE
+		WHERE schedule_num = #{schedule_num}
+	</delete>
+	
+	<!-- 전체 일정 출력 -->
+	<select id="listAll" resultType="Schedule">
+		SELECT schedule_num,
+      		   schedule_title,
+       		   schedule_date,
+       		   schedule_deadline
+		FROM SCHEDULE
+	</select>
+	
+	<!-- 상세 일정 출력 -->
+	<select id="detailSchedule" resultType="Schedule">
+		SELECT * FROM SCHEDULE
+		WHERE schedule_num = #{schedule_num}
+	</select>
+</mapper>
